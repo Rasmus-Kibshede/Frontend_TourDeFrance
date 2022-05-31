@@ -23,6 +23,14 @@ function createSelect(name, className) {
   return select;
 }
 
+function createI(className){
+  const i = document.createElement("i");
+  i.name = name;
+  i.className = className;
+
+  return i;
+}
+
 
 
 

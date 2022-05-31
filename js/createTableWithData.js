@@ -1,17 +1,9 @@
-function clearTable(table) {
-  const rowCount = table.getElementsByTagName("tr").length;
-
-  for (let i = 1; i < rowCount; i++) {
-    table.deleteRow(1);
-  }
-}
-
 function createRiderTable(data, table) {
 
   data.forEach(rider => {
 
-    let rowCount = riderTable.rows.length;
-    let row = riderTable.insertRow(rowCount);
+    let rowCount = table.rows.length;
+    let row = table.insertRow(rowCount);
     let colCount = 0;
     let cell;
 
@@ -88,7 +80,7 @@ function createRiderTable(data, table) {
 
     cell = row.insertCell(colCount++);
     const updateBtn = document.createElement("button");
-    updateBtn.textContent = "Update Rider";
+    updateBtn.appendChild(createI("fa-solid fa-pen-to-square"));
     updateBtn.onclick = async function () {
 
       rider.rider_firstname = rider_firstname.value;
@@ -107,27 +99,63 @@ function createRiderTable(data, table) {
       rider.team = teamMap.get(parseInt(teamDropDown.options[teamDropDown.selectedIndex].value));
       delete rider.team.riders;
 
-      updateRider(rider);
+      await restFetch("rider", rider.rider_id, "POST", rider);
     };
     cell.appendChild(updateBtn);
 
     cell = row.insertCell(colCount++);
     const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete Rider";
+    deleteBtn.appendChild(createI("fa-solid fa-trash-can"));
     deleteBtn.onclick = async function () {
-      deleteRow(row, rider);
+      deleteRow("rider", row, rider.rider_id, rider, table);
     };
     cell.appendChild(deleteBtn);
   });
 }
 
-async function updateRider(rider) {
-  await restFetch("rider", rider.rider_id, "POST", rider);
+function createTeamTable(data, table) {
+
+  data.forEach(team => {
+
+    let rowCount = table.rows.length;
+    let row = table.insertRow(rowCount);
+    let colCount = 0;
+    let cell;
+
+    cell = row.insertCell(colCount++);
+    cell.textContent = team.team_id;
+
+    cell = row.insertCell(colCount++);
+    const team_name = createInput("input", team.team_name, "text");
+    cell.appendChild(team_name);
+
+
+    cell = row.insertCell(colCount++);
+    const updateBtn = document.createElement("button");
+    updateBtn.className = "button";
+    updateBtn.appendChild(createI("fa-solid fa-pen-to-square"));
+    updateBtn.onclick = async function () {
+
+      team.team_name = team_name.value;
+
+      await restFetch("team", team.team_id, "POST", team);
+    };
+    cell.appendChild(updateBtn);
+
+    cell = row.insertCell(colCount++);
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className = "button";
+    deleteBtn.appendChild(createI("fa-solid fa-trash-can"));
+    deleteBtn.onclick = async function () {
+      deleteRow("team", row, team.team_id, team, table);
+    };
+    cell.appendChild(deleteBtn);
+  });
 }
 
-async function deleteRow(row, rider) {
-  await restFetch("rider", rider.rider_id, "DELETE", rider);
-  riderTable.deleteRow(row.rowIndex);
+async function deleteRow(dbTablename, row, id, object, table) {
+  await restFetch(dbTablename, id, "DELETE", object);
+  table.deleteRow(row.rowIndex);
 }
 
 

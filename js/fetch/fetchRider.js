@@ -1,10 +1,11 @@
 const riderMap = new Map();
 const shirtMap = new Map();
 
-async function fetchRider() {
+async function fetchRider(endPoint) {
 
-  const url = "http://localhost:8080/riders";
+  const url = "http://localhost:8080/" + endPoint;
 
+  riderMap.clear();
   await fetch(url)
     .then(res => res.json())
     .then(data => data.forEach(rider => {
