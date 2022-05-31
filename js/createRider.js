@@ -33,7 +33,7 @@ async function createRider(event) {
   rider.team = teamMap.get(parseInt(teamDropDown.options[teamDropDown.selectedIndex].value));
   delete rider.team.riders;
 
-  console.log(rider);
+  await restFetch("rider", rider.rider_id, "POST", rider);
 
-  restFetch("rider", rider.rider_id, "POST", rider);
+  window.location.href = "rider.html";
 }

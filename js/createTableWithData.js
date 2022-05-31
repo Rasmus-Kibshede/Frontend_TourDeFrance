@@ -66,6 +66,8 @@ function createRiderTable(data, table) {
 
     cell = row.insertCell(colCount++);
     const teamDropDown = createSelect("teamDropDown", "teamDropDown");
+    teamDropDown.appendChild(createOption("Team", null));
+
 
     teamMap.forEach(team => {
       teamDropDown.appendChild(createOption(team.team_name, team.team_id));

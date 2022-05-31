@@ -12,5 +12,6 @@ async function createTeam(event) {
 
   const team = Object.fromEntries(formData.entries());
 
-  restFetch("team", team.team_id, "POST", team);
+  await restFetch("team", team.team_id, "POST", team);
+  window.location.href = "team.html";
 }
