@@ -90,7 +90,7 @@ function createRiderTable(data, table) {
       rider.rider_lastname = rider_lastname.value;
       rider.rider_country = rider_country.value;
       rider.rider_weight = rider_weight.value;
-
+      rider.rider_leader = rider_leader.checked;
       rider.rider_height = rider_height.value;
       rider.rider_weight = rider_weight.value;
       rider.rider_birthday = rider_birthday.value;
