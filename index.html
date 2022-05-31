@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Forside</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/bced513090.js" crossorigin="anonymous" defer></script>
+
 </head>
 <body>
 
@@ -13,13 +19,48 @@
 
   <div id="content">
 
-    <a href="html/rider.html">Riders</a>
-    <a href="html/riderShirts.html">The 4 shirts</a>
+    <nav id="navMenu">
+      <li>
+        <a href="html/rider.html">Riders</a>
+      </li>
+      <li>
+        <a href="html/riderShirts.html">The 4 shirts</a>
+      </li>
+    </nav>
+
+    <table id="tableTeam">
+      <tr>
+        <th>Team Name</th>
+        <th>View Riders</th>
+      </tr>
+    </table>
+
+    <table id="riderTableIndexPage" style="display: none">
+      <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Middle name</th>
+        <th>Lastname</th>
+        <th>Country</th>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>Birthday</th>
+        <th>Leader</th>
+        <th>Time</th>
+        <th>Mountain point</th>
+        <th>Sprint point</th>
+        <th>Team</th>
+      </tr>
+    </table>
 
 
   </div>
 </div>
 
-
+<script src="js/displayRider.js"></script>
+<script src="js/createTags.js"></script>
+<script src="js/fetch/fetchRider.js"></script>
+<script src="js/fetch/fetchTeam.js"></script>
+<script src="js/homePage.js"></script>
 </body>
 </html>

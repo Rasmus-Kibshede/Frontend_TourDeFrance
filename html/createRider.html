@@ -3,52 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <title>Create Rider</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
+<div id="wrapper">
 
-<form method="post" action="http://localhost:8080/rider" id="createRiderForm">
+  <h1>Create a rider</h1>
 
-  <label for="rider_firstname">Firstname:</label>
-  <input type="text" name="rider_firstname" id="rider_firstname">
+  <div id="content">
 
-  <label for="rider_middlename">Middle name:</label>
-  <input type="text" name="rider_middlename" id="rider_middlename">
 
-  <label for="rider_lastname">Lastname:</label>
-  <input type="text" name="rider_lastname" id="rider_lastname">
+    <form method="post" action="http://localhost:8080/rider" id="createRiderForm">
 
-  <label for="rider_country">Country:</label>
-  <input type="text" name="rider_country" id="rider_country">
+      <label for="rider_firstname">Firstname:</label>
+      <input type="text" class="input" name="rider_firstname" id="rider_firstname">
 
-  <label for="rider_weight">Weight:</label>
-  <input type="number" name="rider_weight" id="rider_weight">
+      <label for="rider_middlename">Middle name:</label>
+      <input type="text" class="input" name="rider_middlename" id="rider_middlename">
 
-  <label for="rider_height">Height:</label>
-  <input type="number" name="rider_height" id="rider_height">
+      <label for="rider_lastname">Lastname:</label>
+      <input type="text" class="input" name="rider_lastname" id="rider_lastname">
 
-  <label for="rider_birthday">Birthday:</label>
-  <input type="date" name="rider_birthday" id="rider_birthday">
+      <label for="rider_country">Country:</label>
+      <input type="text" class="input" name="rider_country" id="rider_country">
 
-  <label for="rider_leader">Leader:</label>
-  <input type="checkbox" name="rider_leader" id="rider_leader">
+      <label for="rider_weight">Weight:</label>
+      <input type="number" class="input" name="rider_weight" id="rider_weight">
 
-  <label for="rider_time">Total time:</label>
-  <input type="number" name="rider_time" id="rider_time">
+      <label for="rider_height">Height:</label>
+      <input type="number" class="input" name="rider_height" id="rider_height">
 
-  <label for="rider_mountain_point">Mountain points:</label>
-  <input type="number" name="rider_mountain_point" id="rider_mountain_point">
+      <label for="rider_birthday">Birthday:</label>
+      <input type="date" class="input" name="rider_birthday" id="rider_birthday">
 
-  <label for="rider_sprint_point">Sprint points:</label>
-  <input type="number" name="rider_sprint_point" id="rider_sprint_point">
+      <label for="rider_leader">Leader:</label>
+      <input type="checkbox" class="input" name="rider_leader" id="rider_leader">
 
-  <label for="teamDropDown">Team:</label>
-  <select id="teamDropDown" name="teamDropDown"></select>
+      <label for="rider_time">Total time:</label>
+      <input type="number" class="input" name="rider_time" id="rider_time">
 
-  <button type="submit" name="createRiderBtn" id="createRiderBtn">Save Rider</button>
-</form>
+      <label for="rider_mountain_point">Mountain points:</label>
+      <input type="number" class="input" name="rider_mountain_point" id="rider_mountain_point">
 
-<a href="../html/rider.html">Back</a>
+      <label for="rider_sprint_point">Sprint points:</label>
+      <input type="number" class="input" name="rider_sprint_point" id="rider_sprint_point">
+
+      <label for="teamDropDown">Team:</label>
+      <select id="teamDropDown" class="teamDropDown" name="teamDropDown"></select>
+
+      <button type="submit" name="createRiderBtn" class="button" id="createRiderBtn">Save Rider</button>
+    </form>
+
+    <a href="../html/rider.html">Back</a>
+
+  </div>
+</div>
 
 <script src="../js/createTags.js" defer></script>
 <script src="../js/fetch/fetchTeam.js"></script>

@@ -1,11 +1,3 @@
-function clearTable(table) {
-  const rowCount = table.getElementsByTagName("tr").length;
-
-  for (let i = 1; i < rowCount; i++) {
-    table.deleteRow(1);
-  }
-}
-
 function createRiderTable(data, table) {
 
   data.forEach(rider => {
@@ -88,7 +80,7 @@ function createRiderTable(data, table) {
 
     cell = row.insertCell(colCount++);
     const updateBtn = document.createElement("button");
-    updateBtn.textContent = "Update Rider";
+    updateBtn.appendChild(createI("fa-solid fa-pen-to-square"));
     updateBtn.onclick = async function () {
 
       rider.rider_firstname = rider_firstname.value;
@@ -113,7 +105,7 @@ function createRiderTable(data, table) {
 
     cell = row.insertCell(colCount++);
     const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete Rider";
+    deleteBtn.appendChild(createI("fa-solid fa-trash-can"));
     deleteBtn.onclick = async function () {
       deleteRow(row, rider);
     };
